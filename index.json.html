@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/4.3.1/css/foundation.min.css" />
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700' rel='stylesheet' type='text/css'>
+	<link rel="shortcut icon" href="assets/ico/favicon.png">
+	<link rel="stylesheet" href="assets/css/page.css" />
+    <link rel="stylesheet" href="assets/js/google-code-prettify/prettify.css" />
+    <script src="//cdn.jsdelivr.net/foundation/4.3.1/js/vendor/custom.modernizr.js"></script>
+    <style>
+        #content section div { padding-left:2em; }
+    </style>
+	<title>Laravel Cheat Sheet</title>
+</head>
+<body>
+    
+	<div class="fixed">
+		<nav class="top-bar">
+			<ul class="title-area">
+				<li class="name"><h1><a href="#">Laravel Cheat Sheet</a></h1></li>
+				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+			</ul>
+			<section class="top-bar-section">
+				<ul class="left">
+					<li class="comments-toggle"><a href="#"><i class="icon-comments"></i> Toggle Code Comments</a></li>
+					<li><a href="http://github.com/jesseobrien/laravel-cheatsheet"><i class="icon-github"></i> Github</a></li>
+				</ul>
+			</section>
+		</nav>
+	</div>
+    
+    
+    <div class="row full-width">
+        <div id="c1" class="large-4 columns code-column">
+        </div>
+        <div id="c2" class="large-4 columns code-column">
+        </div>
+        <div id="c3" class="large-4 columns code-column">
+        </div>
+    </div>
+    
+    
+    <div id="content" class="row full-width section-container accordion" data-section="accordion">
+    </div>
+    
+	<script src="assets/js/jquery-1.10.2.min.js"></script>
+    <script>
+         //alert('script');
+         //$(document).foundation();
+         
+        var laravelCheats = {};
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", 'laravel.json', true);
+        xmlhttp.onreadystatechange = function () {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            laravelCheats = $.parseJSON(xmlhttp.responseText);
+            
+            console.log(laravelCheats);
+            print(laravelCheats);
+            
+            
+            s=printItem('routes',laravelCheats.routing);
+                $(s).appendTo('#c1');
+            s=printItem('url',laravelCheats.urls);
+                $(s).appendTo('#c1');
+            
+            s=printItem('url',laravelCheats.urls);
+                $(s).appendTo('#c2');
+            s=printItem('routes',laravelCheats.routing);
+                $(s).appendTo('#c3');
+                
+          }
+        };
+        xmlhttp.send(null);
+        
+        function print(json) {
+            var allCheat='';
+            $.each(json, function(i,item){
+                allCheat+= printItem(i,item);
+            });
+            $(allCheat).appendTo('#content');
+        }
+        
+        function printItem(i,item){
+            console.log(item);
+            var cheat='<h4 ><a name="'+i+'" href="#'+i+'">'+ item.title+ '</a></h4><div>';
+            //$('<h4><a name="'+i+'" href="#'+i+'">'+ item.title+ "</a></h4>").appendTo('#content');
+            cheat+= printCheat(item.cheat);
+                
+            if (item.items)
+            $.each(item.items, function(i,subitem){
+                cheat+= '<br><h5><a>'+ subitem.title+ "</a></h5>";
+                //$('<br><h5><a>'+ subitem.title+ "</a></h5>").appendTo('#content');
+                cheat+= printCheat(subitem.cheat);
+            });
+            return '<section>'+cheat+'</div></section>';
+        }
+        
+        function printCheat(cheat) {
+            var pre='<pre class="prettyprint lang-php">';
+            $.each(cheat, function(i,item){
+                console.log(item);
+                comment= (item)?' //'+item :'';
+                pre +='<span>'+ i+ ''+ comment+ "</span><br/>";
+                //$('<span>'+ i+ ''+ comment+ "</span><br/>").appendTo('#content');
+            });
+            //$(pre+'</pre>').appendTo('#content');
+            return pre+'</pre>';
+            //$(pre+'</pre>').appendTo('#content');
+        }
+        
+        
+    </script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?autoload=true&skin=sunburst"></script>
+	<script type="text/javascript" src="assets/js/app.js"></script>
+    
+    <script src="//cdn.jsdelivr.net/foundation/4.3.1/js/foundation/foundation.min.js"></script>
+	<!--script src="//cdn.jsdelivr.net/foundation/4.3.1/js/foundation/foundation.section.js"></script-->    
+    
+</body>
+</html>
