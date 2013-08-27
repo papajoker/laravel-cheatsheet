@@ -11,6 +11,7 @@
     <script src="//cdn.jsdelivr.net/foundation/4.3.1/js/vendor/custom.modernizr.js"></script>
     <style>
         #content section div { padding-left:2em; }
+        #content pre .com { display:inline; }
     </style>
 	<title>Laravel Cheat Sheet</title>
 </head>
@@ -33,12 +34,9 @@
     
     
     <div class="row full-width">
-        <div id="c1" class="large-4 columns code-column">
-        </div>
-        <div id="c2" class="large-4 columns code-column">
-        </div>
-        <div id="c3" class="large-4 columns code-column">
-        </div>
+        <div id="c1" class="large-4 columns code-column">        </div>
+        <div id="c2" class="large-4 columns code-column">        </div>
+        <div id="c3" class="large-4 columns code-column">        </div>
     </div>
     
     
@@ -47,8 +45,6 @@
     
 	<script src="assets/js/jquery-1.10.2.min.js"></script>
     <script>
-         //alert('script');
-         //$(document).foundation();
          
         var laravelCheats = {};
         var xmlhttp = new XMLHttpRequest();
@@ -76,6 +72,7 @@
         xmlhttp.send(null);
         
         function print(json) {
+            // load all for test : bad for columns
             var allCheat='';
             $.each(json, function(i,item){
                 allCheat+= printItem(i,item);
@@ -86,13 +83,11 @@
         function printItem(i,item){
             console.log(item);
             var cheat='<h4 ><a name="'+i+'" href="#'+i+'">'+ item.title+ '</a></h4><div>';
-            //$('<h4><a name="'+i+'" href="#'+i+'">'+ item.title+ "</a></h4>").appendTo('#content');
             cheat+= printCheat(item.cheat);
                 
             if (item.items)
             $.each(item.items, function(i,subitem){
                 cheat+= '<br><h5><a>'+ subitem.title+ "</a></h5>";
-                //$('<br><h5><a>'+ subitem.title+ "</a></h5>").appendTo('#content');
                 cheat+= printCheat(subitem.cheat);
             });
             return '<section>'+cheat+'</div></section>';
@@ -103,12 +98,9 @@
             $.each(cheat, function(i,item){
                 console.log(item);
                 comment= (item)?' //'+item :'';
-                pre +='<span>'+ i+ ''+ comment+ "</span><br/>";
-                //$('<span>'+ i+ ''+ comment+ "</span><br/>").appendTo('#content');
+                pre +=''+ i+ ''+ comment+ '\n';
             });
-            //$(pre+'</pre>').appendTo('#content');
             return pre+'</pre>';
-            //$(pre+'</pre>').appendTo('#content');
         }
         
         
