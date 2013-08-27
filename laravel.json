@@ -1,0 +1,58 @@
+{
+    "routing": {
+        "title": "Routing",
+        "doc": "http://www;laravel.com/doc/#routing",
+        "cheat": {
+            "Route::get('foo', function(){});":"Classic route",
+            "Route::get('foo', 'ControllerName@function');":""
+        },
+        "items": [
+            {
+                "title": "Triggering Errors",
+                "cheat": {
+                    "App::abort(404);":"",
+                    "App::missing(function($exception){});":"",
+                    "throw new NotFoundHttpException;":""
+                }
+            },
+            
+            {
+                "title": "Route Parameters",
+                "cheat": {
+                    "Route::get('foo/{bar}', function($bar){});": "",
+                    "Route::get('foo/{bar?}', function($bar = 'bar'){});": ""
+                }
+            },
+            
+            {
+                "title": "HTTP Verbs",
+                "cheat": {
+                    "Route::any('foo', function(){});": "",
+                    "Route::post('foo', function(){});": "",
+                    "Route::put('foo', function(){});": "",
+                    "Route::patch('foo', function(){});": "",
+                    "Route::delete('foo', function(){});": "",
+                    "": ""
+                }
+            },
+            
+            {
+                "title": "Secure Routes",
+                "cheat": {
+                    "Route::get('foo', array('https', function(){}));": "",
+                    "": ""
+                }
+            }
+        ]
+    },
+    "urls":{
+        "title": "URLs",
+        "doc": "http://www;laravel.com/doc/#url",
+        "cheat": {
+            "URL::full();": "",
+            "URL::previous();": "",
+            "URL::to('foo/bar', $parameters, $secure);": "",
+            "URL::action('FooController@method', $parameters, $absolute);": ""
+        }
+    }
+}
