@@ -45,14 +45,41 @@
             }
         ]
     },
+    
     "urls":{
         "title": "URLs",
         "doc": "http://www;laravel.com/doc/#url",
         "cheat": {
             "URL::full();": "",
+            "URL::current();": "",
             "URL::previous();": "",
             "URL::to('foo/bar', $parameters, $secure);": "",
             "URL::action('FooController@method', $parameters, $absolute);": ""
         }
-    }
+    },
+    
+    "events":{
+        "title": "Events",
+        "doc": "http://www;laravel.com/doc/#events",
+        "cheat": {
+            "Event::fire('foo.bar', array($bar));": "",
+            "Event::listen('foo.bar', function($bar){});": "",
+            "Event::listen('foo.*', function($bar){});": "",
+            "Event::listen('foo.bar', 'FooHandler', 10);": "",
+            "Event::listen('foo.bar', 'BarHandler', 5);": ""
+        }
+    },
+    
+    "eloquent":{
+        "title": "Eloquent",
+        "doc": "http://www;laravel.com/doc/#eloquent",
+        "cheat": {
+            "Model::create(array('key' => 'value'));": "",
+            "Model::destroy(1);": "",
+            "Model::all();": "",
+            "Model::find(1);": "",
+            "Model::findOrFail(1);": "Trigger an exception"
+        }
+    }    
+    
 }
