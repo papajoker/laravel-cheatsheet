@@ -1,7 +1,7 @@
 {
     "routing": {
         "title": "Routing",
-        "doc": "http://www;laravel.com/doc/#routing",
+        "doc": "http://www.laravel.com/docs/routing",
         "cheat": {
             "Route::get('foo', function(){});":"Classic route",
             "Route::get('foo', 'ControllerName@function');":""
@@ -47,10 +47,8 @@
             {
                 "title": "Route Constraints",
                 "cheat": {
-                    "Route::get('foo/{bar}', function($bar){})": "",
-                    "       ->where('bar', '[0-9]+');": "",
-                    "Route::get('foo/{bar}/{baz}', function($bar, $baz){})": "",
-                    "       ->where(array('bar' => '[0-9]+', 'baz' => '[A-Za-z]'));": ""
+                    "Route::get('foo/{bar}', function($bar){})\n\t->where('bar', '[0-9]+');": "",
+                    "Route::get('foo/{bar}/{baz}', function($bar, $baz){})\n\t->where(array('bar' => '[0-9]+', 'baz' => '[A-Za-z]'));": ""
                 }
             },
             
@@ -94,7 +92,7 @@
     
     "urls":{
         "title": "URLs",
-        "doc": "http://www;laravel.com/doc/#url",
+        "doc": "http://www.laravel.com/docs/#url",
         "cheat": {
             "URL::full();": "",
             "URL::current();": "",
@@ -115,7 +113,7 @@
     
     "events":{
         "title": "Events",
-        "doc": "http://www;laravel.com/doc/#events",
+        "doc": "http://www.laravel.com/docs/events",
         "cheat": {
             "Event::fire('foo.bar', array($bar));": "",
             "Event::listen('foo.bar', function($bar){});": "",
@@ -132,7 +130,7 @@
     
     "eloquent":{
         "title": "Eloquent",
-        "doc": "http://www;laravel.com/doc/#eloquent",
+        "doc": "http://www.laravel.com/docs/eloquent",
         "cheat": {
             "Model::create(array('key' => 'value'));": "",
             "Model::destroy(1);": "",
