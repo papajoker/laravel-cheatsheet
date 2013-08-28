@@ -42,7 +42,53 @@
                     "Route::get('foo', array('https', function(){}));": "",
                     "": ""
                 }
-            }
+            },
+            
+            {
+                "title": "Route Constraints",
+                "cheat": {
+                    "Route::get('foo/{bar}', function($bar){})": "",
+                    "       ->where('bar', '[0-9]+');": "",
+                    "Route::get('foo/{bar}/{baz}', function($bar, $baz){})": "",
+                    "       ->where(array('bar' => '[0-9]+', 'baz' => '[A-Za-z]'));": ""
+                }
+            },
+            
+            {
+                "title": "Filters",
+                "cheat": {
+                    "Route::filter('auth', function(){});": "Declare an auth filter",
+                    "Route::filter('foo', 'FooFilter');": "Register a class as a filter",
+                    "Route::get('foo', array('before' => 'auth', function(){}));": "Routes in this group are guarded by the 'auth' filter",
+                    "Route::group(array('before' => 'auth'), function(){});": "",
+                    "Route::when('foo/*', 'foo');": "Pattern filter",
+                    "Route::when('foo/*', 'foo', array('post'));": "HTTP verb pattern"
+                }
+            },
+            
+            {
+                "title": "Named Routes",
+                "cheat": {
+                    "Route::currentRouteName();": "",
+                    "Route::get('foo/bar', array('as' => 'foobar', function(){}));": ""
+                }
+            },
+            
+            {
+                "title": "Route Prefixing",
+                "cheat": {
+                    "": "This route group will carry the prefix 'foo'",
+                    "Route::group(array('prefix' => 'foo'), function(){})": ""
+                }
+            },
+            
+            {
+                "title": "Sub-Domain Routing",
+                "cheat": {
+                    "": "{sub} will be passed to the closure",
+                    "Route::group(array('domain' => '{sub}.example.com'), function(){});": ""
+                }
+            }            
         ]
     },
     
