@@ -54,7 +54,16 @@
             "URL::current();": "",
             "URL::previous();": "",
             "URL::to('foo/bar', $parameters, $secure);": "",
-            "URL::action('FooController@method', $parameters, $absolute);": ""
+            "URL::action('FooController@method', $parameters, $absolute);": "",
+            "URL::route('foo', $parameters, $absolute);": "",
+            "URL::secure('foo/bar', $parameters);": "",
+            "URL::asset('css/foo.css', $secure);": "",
+            "URL::secureAsset('css/foo.css');": "",
+            "URL::isValidUrl('http://example.com');": "",
+            "URL::getRequest();": "",
+            "URL::setRequest($request);": "",
+            "URL::getGenerator();": "",
+            "URL::setGenerator($generator);": ""
         }
     },
     
@@ -66,7 +75,12 @@
             "Event::listen('foo.bar', function($bar){});": "",
             "Event::listen('foo.*', function($bar){});": "",
             "Event::listen('foo.bar', 'FooHandler', 10);": "",
-            "Event::listen('foo.bar', 'BarHandler', 5);": ""
+            "Event::listen('foo.bar', 'BarHandler', 5);": "",
+            "Event::listen('foor.bar', function($event){ return false; });": "",
+            "Event::queue('foo', array($bar));": "",
+            "Event::flusher('foo', function($bar){});": "",
+            "Event::flush('foo');": "",
+            "Event::subscribe(new FooEventHandler);": ""
         }
     },
     
@@ -78,7 +92,15 @@
             "Model::destroy(1);": "",
             "Model::all();": "",
             "Model::find(1);": "",
-            "Model::findOrFail(1);": "Trigger an exception"
+            "Model::findOrFail(1);": "Trigger an exception",
+            "Model::where('foo', '=', 'bar')->get();": "",
+            "Model::where('foo', '=', 'bar')->first();": "",
+            "Model::where('foo', '=', 'bar')->firstOrFail();": "Exception",
+            "Model::where('foo', '=', 'bar')->count();": "",
+            "Model::where('foo', '=', 'bar')->delete();": "",
+            "Model::whereRaw('foo = bar and cars = 2', array(20))->get();": "",
+            "Model::on('connection-name')->find(1);": "",
+            "Model::with('relation')->get();": ""
         }
     }    
     
