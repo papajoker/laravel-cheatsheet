@@ -243,6 +243,135 @@
             "File::deleteDirectory('directory', $preserve = false);": "",
             "File::cleanDirectory('directory');": ""
         }
+    },
+    
+    "input": {
+        "title": "Input",
+        "doc": "http://www.laravel.com/docs/input",
+        "cheat": {
+            "Input::get('key');": "",
+            "Input::get('key', 'default');": "Default if the key is missing",
+            "Input::has('key');": "",
+            "Input::all();": "Only retrieve 'foo' and 'bar' when getting input",
+            "Input::only('foo', 'bar');": "Disregard 'foo' when getting input",
+            "Input::except('foo');":""
+        },
+        "items": [
+            {
+                "title": "Session Input (flash)",
+                "cheat": {
+                    "": "Flash input to the session",
+                    "Input::flash();": "",
+                    "Input::flashOnly('foo', 'bar');": "",
+                    "Input::flashExcept('foo', 'baz');": "",
+                    "Input::old('key');": ""
+                }
+            },
+            {
+                "title": "Files",
+                "cheat": {
+                    "": "Use a file that's been uploaded",
+                    "Input::file('filename');": "Determine if a file was uploaded",
+                    "Input::hasFile('filename');": "Access file properties",
+                    "Input::file('name')->getRealPath();": "",
+                    "Input::file('name')->getClientOriginalName();":"",
+                    "Input::file('name')->getSize();":"",
+                    "Input::file('name')->getMimeType();": "Move an uploaded file",
+                    "Input::file('name')->move($destinationPath);": "Move an uploaded file",
+                    "Input::file('name')->move($destinationPath, $fileName);":""
+                }
+            }            
+        ]
+    },
+    
+    "cache": {
+        "title": "Cache",
+        "doc": "http://www.laravel.com/docs/cache",
+        "cheat": {
+            "Cache::put('key', 'value', $minutes);":"",
+            "Cache::add('key', 'value', $minutes);":"",
+            "Cache::forever('key', 'value');":"",
+            "Cache::remember('key', $minutes, function(){ return 'value' });":"",
+            "Cache::rememberForever('key', function(){ return 'value' });":"",
+            "Cache::forget('key');":"",
+            "Cache::has('key');":"",
+            "Cache::get('key');":"",
+            "Cache::get('key', 'default');":"",
+            "Cache::get('key', function(){ return 'default'; });":"",
+            "Cache::increment('key');":"",
+            "Cache::increment('key', $amount);":"",
+            "Cache::decrement('key');":"",
+            "Cache::decrement('key', $amount);":"",
+            "Cache::section('group')->put('key', $value);":"",
+            "Cache::section('group')->get('key');":"",
+            "Cache::section('group')->flush();":"",
+            "DB::table('users')->remember(10)->get();":"cache query in minutes"
+        }
+    },
+    
+    "cookies": {
+        "title": "Cookies",
+        "doc": "http://www.laravel.com/docs/cookies",
+        "cheat": {
+            "Cookie::get('key');" :"Create a cookie that lasts for ever",
+            "Cookie::forever('key', 'value');": "Send a cookie with a response",
+            "$response = Response::make('Hello World');": "",
+            "$response->withCookie(Cookie::make('name', 'value', $minutes));": ""
+        }
+    },
+    
+    "sessions": {
+        "title": "Sessions",
+        "doc": "http://www.laravel.com/docs/sessions",
+        "cheat": {
+            "Session::get('key');" :"",
+            "Session::get('key', 'default');" :"",
+            "Session::get('key', function(){ return 'default'; });" :"",
+            "Session::put('key', 'value');" :"",
+            "Session::all();" :"",
+            "Session::has('key');" :"",
+            "Session::forget('key');" :"",
+            "Session::flush();" :"",
+            "Session::regenerate();" :"",
+            "Session::flash('key', 'value');" :"",
+            "Session::reflash();" :"",
+            "Session::keep(array('key1', 'key2'));": ""
+        }
+    },
+    
+    "requests": {
+        "title": "Requests",
+        "doc": "http://www.laravel.com/docs/requests",
+        "cheat": {
+            "Request::path();" :"",
+            "Request::is('foo/*');" :"",
+            "Request::url();" :"",
+            "Request::segment(1);" :"",
+            "Request::header('Content-Type');" :"",
+            "Request::server('PATH_INFO');" :"",
+            "Request::ajax();" :"",
+            "Request::secure();": ""
+        }
+    },
+    
+    "responses": {
+        "title": "Responses",
+        "doc": "http://www.laravel.com/docs/responses",
+        "cheat": {
+            "return Response::make($contents);" :"",
+            "return Response::make($contents, 200);" :"",
+            "return Response::json(array('key' => 'value'));" :"",
+            "return Response::json(array('key' => 'value'))" :"",
+            "\t->setCallback(Input::get('callback'));" :"",
+            "return Response::download($filepath);" :"",
+            "return Response::download($filepath, $filename, $headers);": "",
+            "":"Create a response and modify a header value",
+            "return Response::make($contents, 200)": "",
+            "\t->header('Content-Type', 'application/json');":"",
+            " ": "Attach a cookie to a response",
+            "return Response::make($content)": "",
+            "\t->withCookie(Cookie::make('key', 'value'));": ""
+        }
     }     
     
 }
