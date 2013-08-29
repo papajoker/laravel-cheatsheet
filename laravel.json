@@ -211,6 +211,38 @@
             "Lang::has('messages.welcome');": "",
             "Lang::choice('messages.apples', 10);": ""
         }
-    } 
+    },
+    
+    "files":{
+        "title": "Files",
+        "doc": "http://www.laravel.com/docs/files",
+        "cheat": {
+            "File::exists('path');": "",
+            "File::get('path');": "",
+            "File::getRemote('path');": "",
+            "File::getRequire('path');": "",
+            "File::requireOnce('path');": "",
+            "File::put('path', 'contents');": "",
+            "File::append('path', 'data');": "",
+            "File::delete('path');": "",
+            "File::move('path', 'target');": "",
+            "File::copy('path', 'target');": "",
+            "File::extension('path');": "",
+            "File::type('path');": "",
+            "File::size('path');": "",
+            "File::lastModified('path');": "",
+            "File::isDirectory('directory');": "",
+            "File::isWritable('path');": "",
+            "File::isFile('file');": "",
+            "File::glob($patterns, $flag);": "Find path names matching a given pattern.",
+            "File::files('directory');": "Get an array of all files in a directory.",
+            "File::allFiles('directory');": "Get all of the files from the given directory (recursive).",
+            "File::directories('directory');": "Get all of the directories within a given directory.",
+            "File::makeDirectory('path',  $mode = 0777, $recursive = false);": "",
+            "File::copyDirectory('directory', 'destination', $options = null);": "",
+            "File::deleteDirectory('directory', $preserve = false);": "",
+            "File::cleanDirectory('directory');": ""
+        }
+    }     
     
 }
