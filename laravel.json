@@ -145,7 +145,72 @@
             "Model::whereRaw('foo = bar and cars = 2', array(20))->get();": "",
             "Model::on('connection-name')->find(1);": "",
             "Model::with('relation')->get();": ""
+        },
+        
+        "items": [
+            {
+                "title": "Soft Delete",
+                "cheat": {
+                    "Model::withTrashed()->where('cars', 2)->get();": "",
+                    "Model::withTrashed()->where('cars', 2)->restore();": "",
+                    "Model::where('cars', 2)->forceDelete();": "",
+                    "Model::onlyTrashed()->where('cars', 2)->get();": ""
+                }
+            },
+            {
+                "title": "Events",
+                "cheat": {
+                    "Model::creating(function($model){});": "",
+                    "Model::created(function($model){});": "",
+                    "Model::updating(function($model){});": "",
+                    "Model::updated(function($model){});": "",
+                    "Model::saving(function($model){});": "",
+                    "Model::saved(function($model){});": "",
+                    "Model::deleting(function($model){});": "",
+                    "Model::deleted(function($model){});": "",
+                    "Model::observe(new FooObserver);": ""
+                }
+            }            
+        ]
+    },
+    
+    "mail":{
+        "title": "Mail",
+        "doc": "http://www.laravel.com/docs/mail",
+        "cheat": {
+            "Mail::send('email.view', $data, function($message){});": "",
+            "Mail::send(array('html.view', 'text.view'), $data, $callback);": "",
+            "Mail::queue('email.view', $data, function($message){});": "",
+            "Mail::queueOn('queue-name', 'email.view', $data, $callback);": "",
+            "Mail::later(5, 'email.view', $data, function($message){});": "",
+            "Mail::pretend();": "Write all email to logs instead of sending"
         }
-    }    
+    },
+    
+    "queues":{
+        "title": "Queues",
+        "doc": "http://www.laravel.com/docs/queues",
+        "cheat": {
+            "Queue::push('SendMail', array('message' => $message));": "",
+            "Queue::push('SendEmail@send', array('message' => $message));": "",
+            "Queue::push(function($job) use $id {});": "",
+            "php artisan queue:listen": "",
+            "php artisan queue:listen connection": "",
+            "php artisan queue:listen --timeout=60": "",
+            "php artisan queue:work": ""
+        }
+    },
+    
+    "localization":{
+        "title": "Localization",
+        "doc": "http://www.laravel.com/docs/localization",
+        "cheat": {
+            "App::setLocale('en');": "",
+            "Lang::get('messages.welcome');": "",
+            "Lang::get('messages.welcome', array('foo' => 'Bar'));": "",
+            "Lang::has('messages.welcome');": "",
+            "Lang::choice('messages.apples', 10);": ""
+        }
+    } 
     
 }
